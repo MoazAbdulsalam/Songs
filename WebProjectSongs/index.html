@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>Some Of My Favorite Songs</Title>
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body>
+        <header>Here You Find Some OF My Favorite Songs</header>
+        <div class="sidebar">
+            <h2>Artists</h2>
+            
+            <div class="artist" onclick="toggleSongs('CAS')"> CAS </div>
+            <div id="CAS">
+                <div class="song" onclick="playSong(songs.CAS['Apocalypes'])">Apocalypes</div>
+                <div class="song" onclick="playSong(songs.CAS['Flash'])">Flash</div>
+                <div class="song" onclick="playSong(songs.CAS['Neon Moon'])">Neon Moon</div>
+                <div class="song" onclick="playSong(songs.CAS['Touch'])">Touch</div>
+                <div class="song" onclick="playSong(songs.CAS['Opera House'])">Opera House</div>
+                <div class="song" onclick="playSong(songs.CAS['Bubblegum'])">Bubblegum</div>
+            </div>
+
+            <div class="artist" onclick="toggleSongs('GhostlyKisses')"> Ghostly Kisses </div>
+            <div id="GhostlyKisses">
+                <div class="song" onclick="playSong(songs.GhostlyKisses['Stay'])">Stay</div>
+                <div class="song" onclick="playSong(songs.GhostlyKisses['EmptyNote'])">Empty Note</div>
+                <div class="song" onclick="playSong(songs.GhostlyKisses['Heartbeat'])">Heartbeat</div>
+            </div>
+
+            <div class="artist" onclick="toggleSongs('Wisp')"> Wisp</div>
+            <div id="Wisp">
+                <div class="song" onclick="playSong(songs.Wisp['Your Face'])">Your Face</div>
+                <div class="song" onclick="playSong(songs.Wisp['See You Soon'])">See You Soon</div>
+                <div class="song" onclick="playSong(songs.Wisp['Pandora'])">Pandora</div>
+                <div class="song" onclick="playSong(songs.Wisp['Once then we\'ll be free'])">Once then we'll be free</div>
+            
+
+        </div>
+            
+        </div>
+
+        <div class="main">
+            <iframe id=video src=""  allow="autoplay"  allowfullscreen ></iframe>
+            <pre id = lyrics>Select a Song to see lyrics</pre>
+        </div>
+        
+
+
+
+
+
+        <script src="songs.js"></script>
+        <script >
+            
+            function toggleSongs(id)
+            {
+                const section = document.getElementById(id);
+                const songs = section.querySelectorAll('.song');
+                songs.forEach
+                (
+                    function(s) 
+                    {
+                        if(s.style.display=='block')
+                        {
+                            s.style.display='none';
+                        }
+                        else
+                        {
+                            s.style.display='block';
+                        }
+                    }
+                );
+            }
+
+            function playSong(songData)
+            {
+                document.getElementById('video').src = songData.url;
+                document.getElementById('lyrics').innerHTML = `<p>${songData.lyrics}</p>`;
+            }
+        </script>
+    </body>
+</html>
